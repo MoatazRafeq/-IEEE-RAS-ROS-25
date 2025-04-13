@@ -1,0 +1,109 @@
+problem_1: -
+def count_words(filename):
+    with open(filename, 'r') as f:
+        words = f.read().lower().split()
+    word_count = {}
+    for word in words:
+        word = ''.join(char for char in word if char.isalnum())
+        if word:
+            word_count[word] = word_count.get(word, 0) + 1
+    for word, count in word_count.items():
+        print(word, count)
+
+count_words('Sample.txt')
+********************************************************
+
+problem_2: -
+n = int(input())
+students = []
+for _ in range(n):
+    name = input()
+    grade = float(input())
+    students.append([name, grade])
+
+grades = sorted(set(g for _, g in students))
+second_lowest = grades[1]
+
+result = sorted([name for name, grade in students if grade == second_lowest])
+for name in result:
+    print(name)
+****************************************************************
+
+problem_3: -
+n = int(input())
+lst = []
+for _ in range(n):
+    cmd = input().split()
+    if cmd[0] == 'insert':
+        lst.insert(int(cmd[1]), int(cmd[2]))
+    elif cmd[0] == 'print':
+        print(lst)
+    elif cmd[0] == 'remove':
+        lst.remove(int(cmd[1]))
+    elif cmd[0] == 'append':
+        lst.append(int(cmd[1]))
+    elif cmd[0] == 'sort':
+        lst.sort()
+    elif cmd[0] == 'pop':
+        lst.pop()
+    elif cmd[0] == 'reverse':
+        lst.reverse()
+*******************************************************************
+
+problem_4: -
+if _name_ == '_main_':
+    n = int(input())
+    arr = map(int, input().split())
+    scores = list(set(arr))
+    scores.sort()
+    print(scores[-2])
+*************************************************************
+
+problem_5: -
+import re
+
+def is_valid(card):
+    if not re.fullmatch(r'[456]\d{3}(-?\d{4}){3}', card):
+        return False
+    card_digits = card.replace('-', '')
+    if re.search(r'(\d)\1{3,}', card_digits):
+        return False
+    return True
+
+n = int(input())
+for _ in range(n):
+    card = input().strip()
+    print('Valid' if is_valid(card) else 'Invalid')
+*************************************************************
+
+problem_6: -
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+from datetime import datetime
+
+def time_delta(t1, t2):
+    fmt = '%a %d %b %Y %H:%M:%S %z'
+    dt1 = datetime.strptime(t1, fmt)
+    dt2 = datetime.strptime(t2, fmt)
+    return str(abs(int((dt1 - dt2).total_seconds())))
+
+if _name_ == '_main_':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    t = int(input())
+
+    for t_itr in range(t):
+        t1 = input()
+        t2 = input()
+
+        delta = time_delta(t1, t2)
+
+        fptr.write(delta + '\n')
+
+    fptr.close()
