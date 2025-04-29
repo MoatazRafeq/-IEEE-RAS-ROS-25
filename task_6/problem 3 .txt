@@ -1,0 +1,29 @@
+class Calculator:
+    def add(self, x, y):
+        return x + y
+    
+    def subtract(self, x, y):
+        return x - y
+    
+    def multiply(self, x, y):
+        return x * y
+    
+    def divide(self, x, y):
+        if y == 0:
+            return "Error: Division by zero"
+        return x / y
+
+# Test the Calculator class
+calculator = Calculator()
+print("add")
+print("subtract")
+print("multiply")
+print("divide")
+
+# Additional test to show functionality
+x, y = 10, 5
+print(f"\nAdditional tests with x={x}, y={y}:")
+print(f"Addition: {calculator.add(x, y)}")
+print(f"Subtraction: {calculator.subtract(x, y)}")
+print(f"Multiplication: {calculator.multiply(x, y)}")
+print(f"Division: {calculator.divide(x, y)}")

@@ -1,0 +1,66 @@
+import math
+
+class Shape:
+    def area(self):
+        pass
+    
+    def perimeter(self):
+        pass
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+    
+    def area(self):
+        return math.pi * self.radius ** 2
+    
+    def perimeter(self):
+        return 2 * math.pi * self.radius
+
+class Rectangle(Shape):
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+    
+    def area(self):
+        return self.length * self.width
+    
+    def perimeter(self):
+        return 2 * (self.length + self.width)
+
+class Triangle(Shape):
+    def __init__(self, base, height, side1, side2, side3):
+        self.base = base
+        self.height = height
+        self.side1 = side1
+        self.side2 = side2
+        self.side3 = side3
+    
+    def area(self):
+        return 0.5 * self.base * self.height
+    
+    def perimeter(self):
+        return self.side1 + self.side2 + self.side3
+
+# Test the Shape classes
+# Circle
+radius = 7
+circle = Circle(radius)
+print(f"Radius of the circle: {radius}")
+print(f"Circle Area: {circle.area()}")
+print(f"Circle Perimeter: {circle.perimeter()}")
+
+# Rectangle
+length, width = 5, 7
+rectangle = Rectangle(length, width)
+print(f"Rectangle: Length = {length}  Width = {width}")
+print(f"Rectangle Area: {rectangle.area()}")
+print(f"Rectangle Perimeter: {rectangle.perimeter()}")
+
+# Triangle
+base, height = 5, 4
+side1, side2, side3 = 4, 3, 5
+triangle = Triangle(base, height, side1, side2, side3)
+print(f"Triangle: Base = {base}  Height = {height}  side1 = {side1}  side2 = {side2}  side3 = {side3}")
+print(f"Triangle Area: {triangle.area()}")
+print(f"Triangle Perimeter: {triangle.perimeter()}")

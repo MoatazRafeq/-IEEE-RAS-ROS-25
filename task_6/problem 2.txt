@@ -1,0 +1,30 @@
+from datetime import datetime
+
+class Person:
+    def __init__(self, name, country, date_of_birth):
+        self.name = name
+        self.country = country
+        self.date_of_birth = date_of_birth
+    
+    def calculate_age(self):
+        # Convert date_of_birth string to datetime object
+        birth_date = datetime.strptime(self.date_of_birth, "%Y-%m-%d")
+        today = datetime.now()
+        
+        age = today.year - birth_date.year
+        # Check if birthday has occurred this year
+        if (today.month, today.day) < (birth_date.month, birth_date.day):
+            age -= 1
+        
+        return age
+    
+    def display_info(self):
+        print(f"Name: {self.name}")
+        print(f"Country: {self.country}")
+        print(f"Date of Birth: {self.date_of_birth}")
+        print(f"Age: {self.calculate_age()}")
+
+# Test the Person class
+print("Person_one:")
+person_one = Person("Ferdi Odilia", "France", "1962-07-12")
+person_one.display_info()

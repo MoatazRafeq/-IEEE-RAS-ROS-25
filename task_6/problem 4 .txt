@@ -1,0 +1,35 @@
+class Stack:
+    def __init__(self):
+        self.items = []
+    
+    def push(self, item):
+        self.items.append(item)
+    
+    def pop(self):
+        if not self.is_empty():
+            return self.items.pop()
+        return None
+    
+    def is_empty(self):
+        return len(self.items) == 0
+    
+    def display(self):
+        print(f"Stack items: {self.items}")
+
+# Test the Stack class
+stack = Stack()
+stack.push(10)
+stack.push(20)
+stack.push(30)
+stack.push(40)
+stack.push(50)
+
+stack.display()  # Stack items: [10, 20, 30, 40, 50]
+
+popped_item = stack.pop()
+print(f"Popped item: {popped_item}")  # Popped item: 50
+
+popped_item = stack.pop()
+print(f"Popped item: {popped_item}")  # Popped item: 40
+
+stack.display()  # Stack items: [10, 20, 30]
